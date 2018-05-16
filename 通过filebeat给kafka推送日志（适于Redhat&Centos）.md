@@ -20,7 +20,7 @@
 
 ## 以下是通过filebeat给kafka推送日志的操作文档（适于Redhat/Centos）：
 
-# 1.下载filebeat-5.6:
+## 1.下载filebeat-5.6:
 
 - 配置yum源，编辑`/etc/yum.repos.d/bsc-juhe.repo`文件：
 
@@ -47,7 +47,7 @@ enabled=1
 
         yum install filebeat-5.6.4-1.x86_64
 
-# 2.绑定kafka-server机器的hostname到ip的映射：
+## 2.绑定kafka-server机器的hostname到ip的映射：
 - 绑定kafka server,对应的主机名和ip如下，那么就需要在日志服务器上绑定这些hosts，在`/etc/hosts`文件中追加：
 
         vim /etc/hosts
@@ -63,7 +63,7 @@ enabled=1
 172.18.1.4 ATD3
 ```
 
-# 3.编辑filebeat的配置文件:
+## 3.编辑filebeat的配置文件:
 - 编辑文件`/etc/filebeat/filebeat.yml`：
 
 ```
@@ -113,7 +113,7 @@ centos7:
 
         systemctl restart filebeat
 
-## 3、常见的问题及解决办法：
+## 4、常见的问题及解决办法：
 （1）确认是否有新产生的日志进入到kafka中：
 登陆到ATD部署机器192.168.0.89，消费对应kafka的topic数据，如果日志源有新日志产生且推送日志流程正常，使用如下命令能看到日志：
 ```
